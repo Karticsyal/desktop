@@ -1,0 +1,83 @@
+<head>
+<style type="text/css">
+body{
+    margin:0px;
+    color: white;
+}
+.header {
+    height:50px;
+    background:#E74C3C;
+	width:100%;
+    position:fixed;
+    top:0px;
+}
+.header-menu {
+    height:30px;
+    background:#34495E;
+	width:100%;
+    position:fixed;
+    top:50px;
+}
+.content {
+	margin-left: 100px;
+	margin-right: 100px;
+}
+.men {
+	margin: 10px;
+}
+.women {
+	margin: 10px;
+}
+.kids {
+	margin: 10px;
+}
+div.logo {
+	margin: 10px;
+	text-align: left;
+}
+div.cart {
+	text-align: right;
+}
+#account {
+	text-align: right;
+	margin: 10px;
+}
+#login {
+	margin: 10px;
+}
+#logout {
+	margin: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="header">
+    	<div class="logo">
+    		LOGO
+    		<div class="cart">Cart
+    			<span id="account">Account</span>
+    			<% if user_signed_in? %>
+    				<%= link_to 'logout', destroy_user_session_path , :method => :delete	%>
+    			<% else %>
+    				<%= link_to 'login', new_user_session_path	%>
+    			<% end %>
+    		</div>
+		</div>
+    </div>
+    <div class="header-menu">
+    	<span class="content">
+			<% if user_signed_in? %>
+				Hello, <%= current_user.name %>
+			<% end %>
+    		<span class="men">
+    			MEN
+    		</span>
+    		<span class="women">
+    			WOMEN
+    		</span>
+    		<span class="kids">
+    			KIDS
+    		</span>
+    	</span>
+    </div>
+</body>
